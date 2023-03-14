@@ -1,5 +1,5 @@
 import Data.Data
-import Data.Tree ( Tree(Node) )
+import Data.Tree
 import qualified Data.Tree as Data
 replicate' :: (Num i, Ord i) => i -> a -> [a]
 replicate' n x
@@ -34,26 +34,26 @@ arrayTree x = Node "Array" (arrayTreeAux x)
 
 --recursive function returning values inside array
 arrayTreeAux :: (Show a) => [a] -> [Tree String]
-arrayTreeAux [x] = [Node (show x) []] 
+arrayTreeAux [x] = [Node (show x) []]
 arrayTreeAux (x:xs) = Node (show x) [] : arrayTreeAux xs
 
-tree :: Tree String
-tree =
-  Node
-    "hello"
-    [ Node "foo" [],
-      Node
-        "bars"
-        [ Node "oi!" [],
-          Node
-            "baz"
-            [ Node
-                "a"
-                [ Node "b" [],
-                  Node "c" []
-                ],
-              Node "d" [Node "e" []]
-            ]
-        ],
-      Node "foobar" []
-    ]
+-- tree :: Tree String
+-- tree =
+--   Node
+--     "hello"
+--     [ Node "foo" [],
+--       Node
+--         "bars"
+--         [ Node "oi!" [],
+--           Node
+--             "baz"
+--             [ Node
+--                 "a"
+--                 [ Node "b" [],
+--                   Node "c" []
+--                 ],
+--               Node "d" [Node "e" []]
+--             ]
+--         ],
+--       Node "foobar" []
+--     ]
